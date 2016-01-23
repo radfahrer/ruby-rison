@@ -20,7 +20,7 @@ module Rison
 
     rule(:pair) { key.as(:key) >> str(?:) >> value.as(:value) }
 
-    rule(:key) { id | string }
+    rule(:key) { id | string | number }
 
     rule(:id) { (idstart >> idchars | idstart).as(:identifier) }
 

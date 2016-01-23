@@ -71,8 +71,9 @@ describe 'Rison load method' do
     Rison.load('(a:0,b:1)').must_equal(:a => 0, :b => 1)
     Rison.load('(a:0,b:foo,c:\'23skidoo\')').must_equal(:a => 0, :b => :foo, :c => '23skidoo')
     Rison.load('(id:!n,type:/common/document)').must_equal(:id => nil, :type => :'/common/document')
+    Rison.load('(1:!(2,3))').must_equal(1 => [2,3])
   end
-
+  
   it 'parses arrays' do
     Rison.load('!()').must_equal([])
     Rison.load("!(!t)").must_equal([true])
