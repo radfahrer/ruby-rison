@@ -90,4 +90,9 @@ describe 'Rison load method' do
     proc { Rison.load('US $10') }.must_raise(Rison::ParseError)
     proc { Rison.load('user@domain.com') }.must_raise(Rison::ParseError)
   end
+
+  it 'is aliased as deserialize' do
+  	Rison.respond_to?(:deserialize).must_equal(true)
+	Rison.deserialize('!(!t)').must_equal(Rison.load('!(!t)'))
+  end
 end

@@ -75,4 +75,9 @@ describe 'Rison dump method' do
   it 'raises an exception when given an undumpable object' do
     proc { Rison.dump(Array) }.must_raise(Rison::DumpError)
   end
+
+  it 'is aliased as serialize' do
+    Rison.respond_to?(:serialize).must_equal(true)
+    Rison.dump(true).must_equal(Rison.serialize(true))
+  end
 end
