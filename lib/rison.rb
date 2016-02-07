@@ -10,4 +10,8 @@ module Rison
   rescue Parslet::ParseFailed => exception
     raise ParseError, "Invalid Rison input. #{exception.message}"
   end
+
+  class << self
+    alias deserialize load
+  end
 end

@@ -37,4 +37,8 @@ module Rison
   def self.escape(string)
     string.gsub('!', '!!').gsub("'", "!'")
   end
+
+  class << self
+    alias serialize dump
+  end
 end
