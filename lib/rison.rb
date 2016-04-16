@@ -12,6 +12,6 @@ module Rison
   end
 
   class << self
-    alias deserialize load
+    alias decode load
   end
 end

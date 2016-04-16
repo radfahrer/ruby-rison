@@ -73,7 +73,7 @@ describe 'Rison load method' do
     Rison.load('(id:!n,type:/common/document)').must_equal(:id => nil, :type => :'/common/document')
     Rison.load('(1:!(2,3))').must_equal(1 => [2,3])
   end
-  
+
   it 'parses arrays' do
     Rison.load('!()').must_equal([])
     Rison.load("!(!t)").must_equal([true])
@@ -92,8 +92,8 @@ describe 'Rison load method' do
     proc { Rison.load('user@domain.com') }.must_raise(Rison::ParseError)
   end
 
-  it 'is aliased as deserialize' do
-  	Rison.respond_to?(:deserialize).must_equal(true)
-	Rison.deserialize('!(!t)').must_equal(Rison.load('!(!t)'))
+  it 'is aliased as decode' do
+  	Rison.respond_to?(:decode).must_equal(true)
+	Rison.decode('!(!t)').must_equal(Rison.load('!(!t)'))
   end
 end

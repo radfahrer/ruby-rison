@@ -76,8 +76,8 @@ describe 'Rison dump method' do
     proc { Rison.dump(Array) }.must_raise(Rison::DumpError)
   end
 
-  it 'is aliased as serialize' do
-    Rison.respond_to?(:serialize).must_equal(true)
-    Rison.dump(true).must_equal(Rison.serialize(true))
+  it 'is aliased as encode' do
+    Rison.respond_to?(:encode).must_equal(true)
+    Rison.dump(true).must_equal(Rison.encode(true))
   end
 end

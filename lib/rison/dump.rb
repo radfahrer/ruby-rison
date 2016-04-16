@@ -39,6 +39,6 @@ module Rison
   end
 
   class << self
-    alias serialize dump
+    alias encode dump
   end
 end
